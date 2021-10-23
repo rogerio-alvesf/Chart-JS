@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Rogerio</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+        <div class="header">
+      <div class="container">
+        <h1><span class="highlight"></span> IoT Revolucionário</h1>
+      </div>
+    </div>
+    <div class="dash">
+        <!-- Gráficos -->
+        <div class="graph">
+            <canvas id="myChart1" style="width: 100%; height: 100%"></canvas>
+        </div>
+
+        <div class="graph">
+            <canvas id="myChart2" style="width: 100%; height: 100%"></canvas>
+        </div>
+
+        <div class="graph">
+            <canvas id="myChart3" style="width: 100%; height: 100%"></canvas>
+        </div>
+    </div>
+</body>
+<script>
+    // Inicia uma variável do tipo constante (não pode ser reatribuida)
+    const config1 = {
+        type: "line", // tipo do gráfico
+        data: { // objeto que vai conter os dados do gráfico
+            labels: ["2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021"], // labels (rótulos) que serão identificados os nossos dados 
+            datasets: [ // datasets (conjunto de dados)
+                {
+                    label: "Salário Mininmo por Ano", // irá conter o rótulo principal do nosso gráfico
+                    data: [540.00, 622.00, 678.00, 724.00, 788.00, 880.00, 937.00, 954.00, 998.00, 1045.00, 1100.00], // os dados referentes aqueles rótulos
+                    backgroundColor: "#2196F3", // cor das "bolinhas" 
+                    borderColor: "#3F51B5" // cor da "linha" do gráfico
+                }
+            ]
+        },
+        options: {
+            maintainAspectRatio: false,
+            plugins: {
+                title: {
+                    display: true,
+                    text: "Salário Minimo"
+                }
+            }
+            /* maintainAspectRatio (manter relação de aspecto) 
+              caso true: ele "obdece" a altura e largura que colocamos
+              caso false: ele não "obdece" a altura e largura que colocamos e se ajusta ao componente pai
+            */
+        }
+    }
+
+    var myChartLine = new Chart(document.getElementById("myChart1"), config1);
+
+    const config2 = {
+        type: "bar",
+        data: {
+            labels: ["Norte", "Nordeste", "Sudeste", "Sul", "Centro-Oeste"],
+            datasets: [
+                {
+                    label: "Regiões",
+                    data: [1711.00, 1539.00, 2585.00, 2499.00, 2498.00],
+                    backgroundColor: [
+                        'rgb(255, 64, 64)',
+                        'rgb(255, 165, 0)',
+                        'rgb(255, 205, 86)',
+                        'rgb(75, 192, 192)',
+                        'rgb(54, 162, 235)'
+                    ],
+                    borderColor: [
+                        'rgb(255, 64, 64)',
+                        'rgb(255, 165, 0)',
+                        'rgb(255, 205, 86)',
+                        'rgb(75, 192, 192)',
+                        'rgb(54, 162, 235)'
+                    ],
+                }
+            ]
+        },
+        options: {
+            maintainAspectRatio: false,
+            plugins: {
+                title: {
+                    display: true,
+                    text: "Média de Salário por Região"
+                }
+            }
+        }
+    }
+
+    var myChartLine = new Chart(document.getElementById("myChart2"), config2);
+
+    const config3 = {
+        type: "pie",
+        data: {
+            labels: ["Brasil(total)", "Norte", "Nordeste", "Sudeste", "Sul", "Centro-Oeste"],
+            datasets: [
+                {
+                    data: [11, 10.6, 13.6, 11.4, 6.8,9.3],
+                    backgroundColor: [
+                        'rgb(255, 64, 64)',
+                        'rgb(255, 165, 0)',
+                        'rgb(255, 205, 86)',
+                        'rgb(75, 192, 192)',
+                        'rgb(54, 162, 235)',
+                        'rgb(153, 102, 255)'
+                    ],
+                    borderColor: [
+                        'rgb(255, 64, 64)',
+                        'rgb(255, 165, 0)',
+                        'rgb(255, 205, 86)',
+                        'rgb(75, 192, 192)',
+                        'rgb(54, 162, 235)',
+                        'rgb(153, 102, 255)'
+                    ],
+                }
+            ]
+        },
+        options: {
+            maintainAspectRatio: false,
+            plugins: {
+                title: {
+                    display: true,
+                    text: "Desemprego por Região"
+                }
+            }
+        }
+    }
+
+    var myChartLine = new Chart(document.getElementById("myChart3"), config3);
+
+</script>
+
+</html>
